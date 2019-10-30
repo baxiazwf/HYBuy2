@@ -9,8 +9,5 @@
         <module name="HYBuy" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="HYBuy" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>

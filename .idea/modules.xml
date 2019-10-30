@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HYBuy.iml" filepath="$PROJECT_DIR$/HYBuy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HYBuy2.iml" filepath="$PROJECT_DIR$/.idea/HYBuy2.iml" />
     </modules>
   </component>
 </project>
