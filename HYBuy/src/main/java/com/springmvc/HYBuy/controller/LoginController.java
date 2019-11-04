@@ -38,20 +38,20 @@ public class LoginController {
         System.out.print(flag);
         return flag;
     }
-    @RequestMapping(value="/regist2",method = RequestMethod.GET)
+    @RequestMapping(value="/regist",method = RequestMethod.GET)
     public String showLogin(){
         System.out.println("进入注册页面控制器");
-        return "/regist2";
+        return "regist";
     }
-    @RequestMapping(value="/login2",method = RequestMethod.GET)
+    @RequestMapping(value="/login",method = RequestMethod.GET)
     public String showUpload(){
         System.out.println("进入登录页面控制器");
-        return "/login2";
+        return "login";
     }
-    @RequestMapping(value="/index2",method = RequestMethod.GET)
+    @RequestMapping(value="/index",method = RequestMethod.GET)
     public String showIndex(){
         System.out.println("进入登录页面控制器");
-        return "/index2";
+        return "index";
     }
 
 }

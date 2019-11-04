@@ -1,39 +1,70 @@
-<%@ page pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">　---添加移动设备标签 -->
+     <meta name="viewport" content="width=device-width,
+                                     initial-scale=1.0,
+                                     maximum-scale=1.0,
+                                     user-scalable=no">　
     <script src="https://code.jquery.com/jquery-git.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
-    <title>登陆</title>
+    <!---更加合适的一定设备命名方式-->
+    <title>Hello , together~ </title>　
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/WEB-INF/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/WEB-INF/mycss/style.css" 　type="text/css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script src="<%=request.getContextPath()%>/WEB-INF/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-<jsp:include page="navigate.jsp" />
 <script>
     function  funlogin() {
         var uname = document.getElementById("uname").value;
         var upwd = document.getElementById("upwd").value;
-        alert(upwd+uname);
-        $.post("<%=request.getContextPath()%>/checkuser",{uname:uname,upwd:upwd},function(result){
-            if(result=="success"){
-                alert("<%=request.getSession().getAttribute("uname")%>")
-                window.location = "<%=request.getContextPath()%>/index";
-            }
+        alert(uname+upwd);
+        $.get('<%=request.getContextPath()%>/checkuser',{uname:uname,upwd:upwd},function(res){
+           if(new String(res) == "success"){
+               alert("您已注册成功，5s将为您跳回首页");
+               setTimeout('window.location="<%=request.getContextPath()%>/index"',5000);
+           }
+
         });
     }
     function jumpRegist(){
-        $.get("<%=request.getContextPath()%>/regist");
-        <%--window.location = "<%=request.getContextPath()%>/regist";--%>
+        $.get("<%=request.getContextPath()%>/regist2");
     }
 </script>
-<h2>用户登陆</h2>
-    用户名：<input type="text" id = "uname"autocomplete="off"/> <br>
-    密&nbsp;码：<input type="password" id = "upwd" autocomplete="new-password"/> <br>
-           <input type="button" value="登陆"  onclick="funlogin()" />
-    <input type="button" value="还没注册，先去注册..." onclick="jumpRegist()"/>
+<div class="container">
+    <div class='row login'>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" class="form-control" id="uname"  autocomplete="off"/>
+            </div>
+            <div class="form-group">
+                <label for="upwd">密码</label>
+                <input type="password" class="form-control" id="upwd"  autocomplete="new-password"/>
+            </div>
 
-
+            <button  onclick="funlogin()">登录</button>
+            <button  onclick="jumpRegist()" >注册</button>
+    </div>
+</div>
 
 </body>
+
 </html>
