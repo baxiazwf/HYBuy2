@@ -11,15 +11,21 @@
          http://www.springframework.org/schema/mvc
          http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd"  >
 
+
     <!-- ①：对com.springmvc包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
-    <context:component-scan base-package="com.springmvc"/>
+    <context:component-scan base-package="com.springmvc.HYBuy">
+    </context:component-scan>
     <mvc:annotation-driven />
     <!-- 静态资源访问 -->
     <!--如果webapp下你新建了文件夹，想访问里面的静态资源，那么就要在这配置一下-->
-    <mvc:resources location="/images/" mapping="/images/**"/>
     <mvc:resources location="/css/" mapping="/css/**"/>
-<!--    <mvc:resources location="/styles/" mapping="/styles/**"/>-->
+    <mvc:resources location="/fonts/" mapping="/fonts/**"/>
+    <mvc:resources location="/img/" mapping="/img/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/jsp/" mapping="/jsp/**"/>
+    <mvc:resources location="/mycss/" mapping="/mycss/**"/>
+<!--    <mvc:resources location="/styles/" mapping="/styles/**"/>-->
+
 
     <!-- Configures the @Controller programming model
     <mvc:annotation-driven />-->
@@ -41,17 +47,21 @@
     </bean>
 
 
-
-
-
     <!-- 配置视图解析器，把控制器的逻辑视频映射为真正的视图 -->
     <!-- /WEB-INF/jsp/start.jsp -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
-
+    <bean id="htmlviewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="com.springmvc.HYBuy.util.HtmlResourceView"/><!-- 改成你自己的解析类路径 -->
+        <property name="order" value="0"/>
+        <!-- 前缀 -->
+        <property name="prefix" value="/PDF.js/web/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
 
 
 
@@ -65,9 +75,7 @@
                 <value>classpath:jdbc.properties</value>
             </list>
         </property>
-
     </bean>
-
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${driver}"/>
@@ -79,12 +87,33 @@
         <property name="maxIdle" value="5"/>
         <property name="maxWait" value="80000"/>
     </bean>
-
+    <!--&lt;!&ndash; 配置会话工厂SqlSessionFactory &ndash;&gt;-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:sqlmap/*Mapper.xml"/>
+        <property name="typeAliasesPackage" value="com.springmvc.HYBuy.entity"/>
+    </bean>
+    <!--&lt;!&ndash; 在spring容器中配置mapper的扫描器产生的动态代理对象在spring的容器中自动注册，bean的id就是mapper类名（首字母小写）&ndash;&gt;-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 指定扫描包的路径，就是mapper接口的路径，多个包中间以 半角逗号隔开   -->
+        <property name="basePackage" value="com.springmvc.HYBuy.dao"/>
+        <!-- 配置sqlSessionFactoryBeanName -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- set the max upload size100MB -->
+        <property name="maxUploadSize">
+            <value>10485760000</value>
+        </property>
+        <property name="maxInMemorySize">
+            <value>4096</value>
+        </property>
+    </bean>
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
     </bean>
-
     <!-- 拦截器 -->
     <mvc:interceptors>
         <!-- 国际化操作拦截器 如果采用基于（请求/Session/Cookie）则必需配置 -->

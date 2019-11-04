@@ -5,7 +5,7 @@
     <properties resource="generator.properties"/>
 
     <classPathEntry
-            location="D:\ideaproject\HYBuy\target\HYBuy\WEB-INF\lib\mysql-connector-java-5.1.29.jar" />
+            location="D:\we_are_together\HYBuy2\HYBuy\target\HYBuy\WEB-INF\lib\mysql-connector-java-5.1.29.jar" />
     <context id="context1">
         <!-- 注释 -->
         <commentGenerator>
