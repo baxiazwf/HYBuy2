@@ -72,6 +72,7 @@
     // }
 </script>
 <div class="container">
+    <h1>together网站</h1><br>
         <div class="form-group">
             <label class="col-sm-2 control-label" >用户名/user</label>
             <div class="col-sm-10">
@@ -110,6 +111,15 @@
                 <input type="button" class="btn btn-default" onclick="checkForm()" value="提交"></input>
             </div>
         </div>
+
+    <!-----脚注，下面-->
+    <div class="row clearfix" style="margin-top: 60%;">
+        <div class="col-md-12 column nerous">
+            <address> <strong>together, Inc.</strong> 795 Folsom Ave, Suite 600 San Francisco, CA 94107<br /> <abbr
+                    title="phone">P:</abbr> 17705419425</address>
+        </div>
+    </div>
+</div>
 
 </div>
 

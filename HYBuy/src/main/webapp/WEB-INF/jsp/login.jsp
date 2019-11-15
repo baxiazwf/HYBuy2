@@ -49,7 +49,16 @@
         $.get("<%=request.getContextPath()%>/regist2");
     }
 </script>
+<header>
+    <section class="head-top"></section>
+    <section class="logo"></section>
+</header>
+<section></section>
+<main class="header-top"></main>
+
 <div class="container">
+    <h1>together网站</h1><br>
+
     <div class='row login'>
             <div class="form-group">
                 <label>用户名</label>
@@ -63,8 +72,15 @@
             <button  onclick="funlogin()">登录</button>
             <button  onclick="jumpRegist()" >注册</button>
     </div>
-</div>
 
+    <!-----脚注，下面-->
+    <div class="row clearfix" style="margin-top: 50%;">
+        <div class="col-md-12 column nerous">
+            <address> <strong>together, Inc.</strong> 795 Folsom Ave, Suite 600 San Francisco, CA 94107<br /> <abbr
+                    title="phone">P:</abbr> 17705419425</address>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

@@ -55,6 +55,10 @@
     <url-pattern>*.md</url-pattern>
 <!--    <url-pattern>*.do</url-pattern>&lt;!&ndash; 必须 要写&ndash;&gt;-->
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+  </servlet-mapping>
 
   <context-param>
     <param-name>contextConfigLocation</param-name>

@@ -43,7 +43,23 @@
        window.location.href = "<%=request.getContextPath()%>/regist";
        <%--$.get('<%=request.getContextPath()%>/regist2');--%>
    }
+
+   $(function(){
+       $("#dhl li a").on("click",function(){
+           var address =$(this).attr("href");
+           alert(address);
+           $("#iframe1").attr("src",address);
+       });
+   });
+
+
 </script>
+<header>
+    <section class="head-top"></section>
+    <section class="logo"></section>
+</header>
+<section></section>
+<main class="header-top"></main>
 <div class="container">
     <!----div标题栏-->
     <div class='row'>
@@ -98,141 +114,142 @@
     <!----上面导航栏部分-->
     <div class='row'>
         <nav class="navbar navbar-default navbar-static-top">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#" class="btn btn-primary btn-lg active"
-                                                          role="button">首页</a></li>
-                <li role="presentation"><a href="model_html/model.html" class="btn btn-primary btn-lg active"
-                                           role="button">模型社区</a></li>
-                <li role="presentation"><a href="person_center_html/persion_center.html" class="btn btn-primary btn-lg active" role="button">个人中心</a>
+            <ul id="dhl" class="nav nav-tabs">
+                <li role="presentation" class="active"><a  href="<%=request.getContextPath()%>/login" class="btn btn-primary btn-lg active" role="button" target="myFrameName">首页</a></li>
+                <li role="presentation"><a href="<%=request.getContextPath()%>/regist" class="btn btn-primary btn-lg active"role="button" target="myFrameName">模型社区</a></li>
+                <li role="presentation"><a href="<%=request.getContextPath()%>/index" class="btn btn-primary btn-lg active" role="button">个人中心</a>
                 </li>
-
             </ul>
         </nav>
     </div>
     <!----中间内容部分-->
     <div class="row clearfix">
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
+        <div class="main_right" >
+            <iframe id="iframe1" name="myFrameName" frameborder="0"  style="width:100%;height:60%;margin-top:300px;" src="<%=request.getContextPath()%>/WEB-INF/jsp/index.jsp" ></iframe>
         </div>
 
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4 column nerous">
-            <h2>
-                <a href="#">神经网络接口 </a>
-            </h2>
-            <p>
-                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+<%--        <div class="col-md-4 column nerous">--%>
+<%--            <h2>--%>
+<%--                <a href="#">神经网络接口 </a>--%>
+<%--            </h2>--%>
+<%--            <p>--%>
+<%--                神经网络接口由某位企业或者个人创造，并且上传到我们的网站，通过我们的网站接口他们可以为某一行业提供服务，当然这要分为信息类的还是直接提供服务类的。致力于打造最棒的神经网络构建市场，对接上下线。--%>
+<%--            </p>--%>
+<%--            <p>--%>
+<%--                <a class="btn" href="#">View details »</a>--%>
+<%--            </p>--%>
+<%--        </div>--%>
 
 
     </div>
